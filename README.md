@@ -1,18 +1,18 @@
 # PBWebViewController
 
-`PBWebViewController` is a light-weight, simple and extendible web browser component for iOS. It's just 2 source files, no images, around 200 lines of code and has been built with modern Cocoa development techniques.
+`PBWebViewController` is a light-weight, simple and customizable web browser component for iOS. It's just 2 source files, image-free, around 200 lines of code and has been built with modern Cocoa development techniques.
 
 ![](http://f.cl.ly/items/2i0m0j0U3H240t0k0i38/PBWebViewController.png)
 
 ## Installation
 
-Just drag the `PBWebViewController` folder to your project.
+Just drag the `PBWebViewController` folder to your project or add `pod 'PBWebViewController'` to your `Podfile`.
 
 ## Usage
 
 **`PBWebViewController` requires iOS 6.0 and ARC.**
 
-`PBWebViewController` works on iPhone and iPad in all orientations and is meant to be used in a `UINavigationController`. All you need to do is set up it's properties and then push it. Here's a simple example with comments:
+`PBWebViewController` works on iPhone and iPad, in all orientations and is meant to be used in a `UINavigationController`. All you need to do is set up it's properties and then push it. Here's a simple example:
 
 ```objective-c
 // Initialize the web view controller and set it's URL
@@ -32,13 +32,21 @@ self.webViewController.excludedActivityTypes = @[UIActivityTypeMail, UIActivityT
 [self.navigationController pushViewController:self.webViewController animated:YES];
 ```
 
-See the example project for a little more advanced usage.
+See the example project for more advanced usage.
 
 ### Subclassing Notes
 
-`PBWebViewController` can safely be subclassed to implement custom behaveour. Override `load`, and the `UIWebViewDelegate` methods to hook in, just don't forget to call super to take advantage of what `PBWebViewController` provides.
+`PBWebViewController` can safely be subclassed to implement custom behaveour. Override `load` and the `UIWebViewDelegate` methods to hook in, just don't forget to call `super` to take advantage of what `PBWebViewController` provides.
 
 A simple subclass is used in the example project.
+
+### Notes on custom activity items and application activities
+
+`PBWebViewController` adds the current URL and any activity items you provide to the application activity that is clicked. You can customize everything that shows up when the action button is clicked this way.
+
+Another way to achieve the same result is to override `activityItems` and `applicationActivities` in a subclass.
+
+Check out the `action:` method in `PBWebViewController.m` for more details.
 
 ## Contributing
 
