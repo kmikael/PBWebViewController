@@ -159,6 +159,11 @@
 
 - (void)action:(id)sender
 {
+    if (self.activitiyPopoverController.popoverVisible) {
+        [self.activitiyPopoverController dismissPopoverAnimated:YES];
+        return;
+    }
+    
     NSArray *activityItems;
     if (self.activityItems) {
         activityItems = [self.activityItems arrayByAddingObject:self.URL];
