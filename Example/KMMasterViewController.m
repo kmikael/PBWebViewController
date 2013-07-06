@@ -43,6 +43,11 @@
     }
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self.webViewController clear];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.bookmarks count];
@@ -67,7 +72,9 @@
     NSString *bookmark = self.bookmarks[indexPath.row];
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-	    self.webViewController = [[PBWebViewController alloc] init];
+        if (!self.webViewController) {
+            self.webViewController = [[PBWebViewController alloc] init];
+        }
     }
     
     PBSafariActivity *activity = [[PBSafariActivity alloc] init];
