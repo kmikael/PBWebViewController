@@ -35,7 +35,7 @@
 
 - (void)clear
 {
-    [self.webView stringByEvaluatingJavaScriptFromString:@"document.body.innerHTML = \"\";"];
+    [self.webView loadHTMLString:@"" baseURL:nil];
     self.title = @"";
 }
 
