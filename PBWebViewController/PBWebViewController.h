@@ -17,5 +17,6 @@
 @property (strong, nonatomic) NSArray *excludedActivityTypes;
 
 - (void)load;
+- (void)clear;
 
 @end

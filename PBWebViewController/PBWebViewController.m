@@ -33,6 +33,12 @@
     }
 }
 
+- (void)clear
+{
+    [self.webView stringByEvaluatingJavaScriptFromString:@"document.body.innerHTML = \"\";"];
+    self.title = @"";
+}
+
 #pragma mark - View controller lifecycle
 
 - (void)loadView
