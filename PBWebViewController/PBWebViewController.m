@@ -98,8 +98,34 @@
 
 - (UIImage *)rightTriangleImage
 {
-    UIImage *image = [self leftTriangleImage];
-    return [UIImage imageWithCGImage:image.CGImage scale:image.scale orientation:UIImageOrientationDown];
+
+    static UIImage *rightTriangleImage;
+
+    static dispatch_once_t predicate;
+    dispatch_once(&predicate, ^{
+        UIImage *leftTriangleImage = [self leftTriangleImage];
+
+        CGSize size = leftTriangleImage.size;
+
+        UIGraphicsBeginImageContextWithOptions(size, NO, 0.0f);
+
+        CGContextRef context = UIGraphicsGetCurrentContext();
+
+        CGFloat x_mid = size.width / 2.0f;
+        CGFloat y_mid = size.height / 2.0f;
+
+        CGContextTranslateCTM(context, x_mid, y_mid);
+
+        CGContextRotateCTM(context, M_PI);
+        [leftTriangleImage drawAtPoint:CGPointMake((x_mid * -1), (y_mid * -1))];
+
+        rightTriangleImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    });
+
+    return rightTriangleImage;
+
+
 }
 
 - (void)setupToolBarItems
