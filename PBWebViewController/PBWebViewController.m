@@ -27,7 +27,7 @@
 {
     NSURLRequest *request = [NSURLRequest requestWithURL:self.URL];
     [self.webView loadRequest:request];
-    
+
     if (self.navigationController.toolbarHidden) {
         [self.navigationController setToolbarHidden:NO animated:YES];
     }
@@ -69,6 +69,7 @@
     [self.webView stopLoading];
     self.webView.delegate = nil;
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    [self.navigationController setToolbarHidden:YES animated:YES];
 }
 
 #pragma mark - Helpers
@@ -76,23 +77,23 @@
 - (UIImage *)leftTriangleImage
 {
     static UIImage *image;
-    
+
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{
         CGSize size = CGSizeMake(14.0f, 16.0f);
         UIGraphicsBeginImageContextWithOptions(size, NO, 0.0f);
-        
+
         UIBezierPath *path = [UIBezierPath bezierPath];
         [path moveToPoint:CGPointMake(0.0f, 8.0f)];
         [path addLineToPoint:CGPointMake(14.0f, 0.0f)];
         [path addLineToPoint:CGPointMake(14.0f, 16.0f)];
         [path closePath];
         [path fill];
-        
+
         image = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
     });
-    
+
     return image;
 }
 
@@ -133,37 +134,37 @@
     self.stopLoadingButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop
                                                                            target:self.webView
                                                                            action:@selector(stopLoading)];
-    
+
     self.reloadButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
                                                                       target:self.webView
                                                                       action:@selector(reload)];
-    
+
     self.backButton = [[UIBarButtonItem alloc] initWithImage:[self leftTriangleImage]
                                                        style:UIBarButtonItemStylePlain
                                                       target:self.webView
                                                       action:@selector(goBack)];
-    
+
     self.forwardButton = [[UIBarButtonItem alloc] initWithImage:[self rightTriangleImage]
                                                           style:UIBarButtonItemStylePlain
                                                          target:self.webView
                                                          action:@selector(goForward)];
-    
+
     self.backButton.enabled = NO;
     self.forwardButton.enabled = NO;
-    
+
     UIBarButtonItem *actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
                                                                                   target:self
                                                                                   action:@selector(action:)];
-    
+
     UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
                                                                            target:nil
                                                                            action:nil];
-    
+
     UIBarButtonItem *space_ = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
                                                                             target:nil
                                                                             action:nil];
     space_.width = 60.0f;
-    
+
     self.toolbarItems = @[self.stopLoadingButton, space, self.backButton, space_, self.forwardButton, space, actionButton];
 }
 
@@ -171,7 +172,7 @@
 {
     self.backButton.enabled = self.webView.canGoBack;
     self.forwardButton.enabled = self.webView.canGoForward;
-    
+
     NSMutableArray *toolbarItems = [self.toolbarItems mutableCopy];
     if (self.webView.loading) {
         toolbarItems[0] = self.stopLoadingButton;
@@ -195,20 +196,20 @@
         [self.activitiyPopoverController dismissPopoverAnimated:YES];
         return;
     }
-    
+
     NSArray *activityItems;
     if (self.activityItems) {
         activityItems = [self.activityItems arrayByAddingObject:self.URL];
     } else {
         activityItems = @[self.URL];
     }
-    
+
     UIActivityViewController *vc = [[UIActivityViewController alloc] initWithActivityItems:activityItems
                                                                      applicationActivities:self.applicationActivities];
     if (self.excludedActivityTypes) {
         vc.excludedActivityTypes = self.excludedActivityTypes;
     }
-    
+
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
         [self presentViewController:vc animated:YES completion:NULL];
     } else {
