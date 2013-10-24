@@ -19,11 +19,9 @@
 		1882DF991733D8CD0030D3E2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1882DF971733D8CD0030D3E2 /* InfoPlist.strings */; };
 		1882DF9B1733D8CD0030D3E2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1882DF9A1733D8CD0030D3E2 /* main.m */; };
 		1882DF9F1733D8CD0030D3E2 /* KMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1882DF9E1733D8CD0030D3E2 /* KMAppDelegate.m */; };
-		1882DFA11733D8CD0030D3E2 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1882DFA01733D8CD0030D3E2 /* Default.png */; };
-		1882DFA31733D8CD0030D3E2 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1882DFA21733D8CD0030D3E2 /* Default@2x.png */; };
-		1882DFA51733D8CD0030D3E2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1882DFA41733D8CD0030D3E2 /* Default-568h@2x.png */; };
 		1882DFA81733D8CD0030D3E2 /* KMMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1882DFA71733D8CD0030D3E2 /* KMMasterViewController.m */; };
 		1882DFAB1733D8CD0030D3E2 /* KMWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1882DFAA1733D8CD0030D3E2 /* KMWebViewController.m */; };
+		6401361418198A4B0041A84C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6401361318198A4B0041A84C /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,13 +43,11 @@
 		1882DF9C1733D8CD0030D3E2 /* Example-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Example-Prefix.pch"; sourceTree = "<group>"; };
 		1882DF9D1733D8CD0030D3E2 /* KMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KMAppDelegate.h; sourceTree = "<group>"; };
 		1882DF9E1733D8CD0030D3E2 /* KMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KMAppDelegate.m; sourceTree = "<group>"; };
-		1882DFA01733D8CD0030D3E2 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		1882DFA21733D8CD0030D3E2 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		1882DFA41733D8CD0030D3E2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		1882DFA61733D8CD0030D3E2 /* KMMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KMMasterViewController.h; sourceTree = "<group>"; };
 		1882DFA71733D8CD0030D3E2 /* KMMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KMMasterViewController.m; sourceTree = "<group>"; };
 		1882DFA91733D8CD0030D3E2 /* KMWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KMWebViewController.h; sourceTree = "<group>"; };
 		1882DFAA1733D8CD0030D3E2 /* KMWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KMWebViewController.m; sourceTree = "<group>"; };
+		6401361318198A4B0041A84C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +102,7 @@
 				1882DFAA1733D8CD0030D3E2 /* KMWebViewController.m */,
 				1891119F17350B780089B197 /* PBWebViewController */,
 				189111A017350BB60089B197 /* PBSafariActivity */,
+				6401361318198A4B0041A84C /* Images.xcassets */,
 				1882DF951733D8CD0030D3E2 /* Supporting Files */,
 			);
 			path = Example;
@@ -118,9 +115,6 @@
 				1882DF971733D8CD0030D3E2 /* InfoPlist.strings */,
 				1882DF9A1733D8CD0030D3E2 /* main.m */,
 				1882DF9C1733D8CD0030D3E2 /* Example-Prefix.pch */,
-				1882DFA01733D8CD0030D3E2 /* Default.png */,
-				1882DFA21733D8CD0030D3E2 /* Default@2x.png */,
-				1882DFA41733D8CD0030D3E2 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -199,10 +193,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6401361418198A4B0041A84C /* Images.xcassets in Resources */,
 				1882DF991733D8CD0030D3E2 /* InfoPlist.strings in Resources */,
-				1882DFA11733D8CD0030D3E2 /* Default.png in Resources */,
-				1882DFA31733D8CD0030D3E2 /* Default@2x.png in Resources */,
-				1882DFA51733D8CD0030D3E2 /* Default-568h@2x.png in Resources */,
 				18034E4D17345EA700439096 /* Safari@2x~ipad.png in Resources */,
 				18034E4E17345EA700439096 /* Safari@2x~iphone.png in Resources */,
 				18034E4F17345EA700439096 /* Safari~ipad.png in Resources */,
@@ -301,6 +293,8 @@
 		1882DFBB1733D8CD0030D3E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Example/Example-Prefix.pch";
 				INFOPLIST_FILE = "Example/Example-Info.plist";
@@ -312,6 +306,8 @@
 		1882DFBC1733D8CD0030D3E2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Example/Example-Prefix.pch";
 				INFOPLIST_FILE = "Example/Example-Info.plist";
