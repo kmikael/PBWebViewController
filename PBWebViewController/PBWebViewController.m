@@ -19,6 +19,8 @@
 
 @property (strong, nonatomic) UIPopoverController *activitiyPopoverController;
 
+@property (assign, nonatomic) BOOL toolbarPreviouslyHidden;
+
 @end
 
 @implementation PBWebViewController
@@ -29,6 +31,7 @@
     [self.webView loadRequest:request];
     
     if (self.navigationController.toolbarHidden) {
+        self.toolbarPreviouslyHidden = YES;
         [self.navigationController setToolbarHidden:NO animated:YES];
     }
 }
@@ -69,6 +72,10 @@
     [self.webView stopLoading];
     self.webView.delegate = nil;
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    
+    if (self.toolbarPreviouslyHidden) {
+        [self.navigationController setToolbarHidden:YES animated:YES];
+    }
 }
 
 #pragma mark - Helpers
