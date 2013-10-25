@@ -72,9 +72,7 @@
     NSString *bookmark = self.bookmarks[indexPath.row];
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        if (!self.webViewController) {
-            self.webViewController = [[PBWebViewController alloc] init];
-        }
+        self.webViewController = [[PBWebViewController alloc] init];
     }
     
     PBSafariActivity *activity = [[PBSafariActivity alloc] init];
