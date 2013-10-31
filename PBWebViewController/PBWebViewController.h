@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ * The `PBWebViewController` class is a virw controller that displays the contents of a URL
+ * along tith a navigation toolbar with buttons to stop/refresh the loading of the page
+ * as well as buttons to go back, forward and to share the URL using a `UIActivityViewController`.
+ */
 @interface PBWebViewController : UIViewController <UIWebViewDelegate>
 
 /**
