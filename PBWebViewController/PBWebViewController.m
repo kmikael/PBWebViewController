@@ -25,6 +25,15 @@
 
 @implementation PBWebViewController
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _showsNavigationToolbar = YES;
+    }
+    return self;
+}
+
 - (void)load
 {
     NSURLRequest *request = [NSURLRequest requestWithURL:self.URL];
@@ -32,7 +41,9 @@
     
     if (self.navigationController.toolbarHidden) {
         self.toolbarPreviouslyHidden = YES;
-        [self.navigationController setToolbarHidden:NO animated:YES];
+        if (self.showsNavigationToolbar) {
+            [self.navigationController setToolbarHidden:NO animated:YES];
+        }
     }
 }
 
@@ -73,7 +84,7 @@
     self.webView.delegate = nil;
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
-    if (self.toolbarPreviouslyHidden) {
+    if (self.toolbarPreviouslyHidden && self.showsNavigationToolbar) {
         [self.navigationController setToolbarHidden:YES animated:YES];
     }
 }
