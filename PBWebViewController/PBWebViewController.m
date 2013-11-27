@@ -8,7 +8,7 @@
 
 #import "PBWebViewController.h"
 
-@interface PBWebViewController () <UIPopoverControllerDelegate>
+@interface PBWebViewController () <UIPopoverControllerDelegate, UISearchBarDelegate, UIScrollViewDelegate>
 
 @property (strong, nonatomic) UIWebView *webView;
 
@@ -18,6 +18,8 @@
 @property (strong, nonatomic) UIBarButtonItem *forwardButton;
 
 @property (strong, nonatomic) UIPopoverController *activitiyPopoverController;
+
+@property (strong, nonatomic) UISearchBar *searchBar;
 
 @property (assign, nonatomic) BOOL toolbarPreviouslyHidden;
 
@@ -30,6 +32,7 @@
     self = [super init];
     if (self) {
         _showsNavigationToolbar = YES;
+        _allowURLEntry = NO;
     }
     return self;
 }
@@ -41,7 +44,8 @@
     
     if (self.navigationController.toolbarHidden) {
         self.toolbarPreviouslyHidden = YES;
-        if (self.showsNavigationToolbar) {
+        if (self.showsNavigationToolbar)
+        {
             [self.navigationController setToolbarHidden:NO animated:YES];
         }
     }
@@ -51,6 +55,7 @@
 {
     [self.webView loadHTMLString:@"" baseURL:nil];
     self.title = @"";
+    _searchBar.placeholder = @"";
 }
 
 #pragma mark - View controller lifecycle
@@ -66,6 +71,11 @@
 {
     [super viewDidLoad];
     [self setupToolBarItems];
+    if (_allowURLEntry)
+    {
+        self.navigationItem.titleView = self.searchBar;
+        self.webView.scrollView.delegate = self;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -89,7 +99,22 @@
     }
 }
 
+#pragma mark - Scroll Dissmiss Keyboard
+
+
+
 #pragma mark - Helpers
+
+- (UISearchBar *)searchBar
+{
+    if (!_searchBar)
+    {
+        _searchBar = [[UISearchBar alloc] init];
+        [_searchBar setImage:[UIImage new] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
+        _searchBar.delegate = self;
+    }
+    return _searchBar;
+}
 
 - (UIImage *)backButtonImage
 {
@@ -249,6 +274,7 @@
 {
     [self finishLoad];
     self.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    _searchBar.placeholder = self.title;
     self.URL = self.webView.request.URL;
 }
 
@@ -262,6 +288,51 @@
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
 {
     self.activitiyPopoverController = nil;
+}
+
+#pragma mark - Search Bar Delegate
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    NSString *string = searchBar.text;
+    
+    BOOL isVailedURL = NO;
+    
+    NSDataDetector *linkDetector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeLink error:nil];
+    NSArray *matches = [linkDetector matchesInString:string options:0 range:NSMakeRange(0, [string length])];
+    
+    for (NSTextCheckingResult *match in matches) {
+        NSURL *url = [match URL];
+        if (![[url scheme] isEqual:@"tel"])
+        {
+            self.URL = url;
+            isVailedURL = YES;
+            break;
+        }
+    }
+    
+    if (!isVailedURL)
+    {
+        string = [string stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+        self.URL = [NSURL URLWithString:[NSString stringWithFormat:@"http://google.com/search?q=%@",string]];
+    }
+    
+    [searchBar resignFirstResponder];
+    
+    [self load];
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
+{
+    searchBar.text = nil;
+}
+
+
+#pragma mark - Search Bar Delegate
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [_searchBar resignFirstResponder];
 }
 
 @end

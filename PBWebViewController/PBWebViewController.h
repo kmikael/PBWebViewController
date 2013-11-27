@@ -39,6 +39,14 @@
 @property (assign, nonatomic) BOOL showsNavigationToolbar;
 
 /**
+ * A Boolean indicating whether the web view controller should allow 
+ * the user to enter a URL
+ * The default value of this property is `NO`.
+ */
+@property (assign, nonatomic) BOOL allowURLEntry;
+
+
+/**
  * Loads the given `URL`. This is called automatically when the when the web view appears if a `URL` exists,
  * otehrwise it can be called manually.
  */
