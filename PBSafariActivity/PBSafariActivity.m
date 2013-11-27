@@ -28,7 +28,7 @@
 
 - (UIImage *)activityImage
 {
-    return [UIImage imageNamed:@"Safari"];
+    return [UIImage imageNamed:@"PBSafariActivity.bundle/Safari"];
 }
 
 - (BOOL)canPerformWithActivityItems:(NSArray *)activityItems
