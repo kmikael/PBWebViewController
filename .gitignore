@@ -119,6 +119,7 @@ xcuserdata/**/*
 #     (requires option 2 above): Personal Schemes
 #
 !xcuserdata/**/xcschemes/*
+*.xcuserstate
 
 ####
 # XCode 4 workspaces - more detailed
