@@ -99,8 +99,12 @@
     }
 }
 
-#pragma mark - Scroll Dissmiss Keyboard
+#pragma mark - Dissmiss Keyboard
 
+- (void)cancelSearch
+{
+    [_searchBar resignFirstResponder];
+}
 
 
 #pragma mark - Helpers
@@ -292,6 +296,13 @@
 
 #pragma mark - Search Bar Delegate
 
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
+{
+    UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelSearch)];
+    [self.navigationItem setRightBarButtonItem:button animated:YES];
+    return YES;
+}
+
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     NSString *string = searchBar.text;
@@ -319,12 +330,14 @@
     
     [searchBar resignFirstResponder];
     
+    searchBar.text = nil;
+    
     [self load];
 }
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
 {
-    searchBar.text = nil;
+    [self.navigationItem setRightBarButtonItem:nil animated:YES];
 }
 
 
