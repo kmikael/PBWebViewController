@@ -40,7 +40,7 @@
 		1882DFA71733D8CD0030D3E2 /* KMMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KMMasterViewController.m; sourceTree = "<group>"; };
 		1882DFA91733D8CD0030D3E2 /* KMWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KMWebViewController.h; sourceTree = "<group>"; };
 		1882DFAA1733D8CD0030D3E2 /* KMWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KMWebViewController.m; sourceTree = "<group>"; };
-		43D70A8118464558006FBAE4 /* PBSafariActivity.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = PBSafariActivity.bundle; path = PBSafariActivity/PBSafariActivity.bundle; sourceTree = SOURCE_ROOT; };
+		43D70A8118464558006FBAE4 /* PBSafariActivity.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = PBSafariActivity.bundle; path = Resources/PBSafariActivity.bundle; sourceTree = SOURCE_ROOT; };
 		6401361318198A4B0041A84C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,6 +96,7 @@
 				1882DFAA1733D8CD0030D3E2 /* KMWebViewController.m */,
 				1891119F17350B780089B197 /* PBWebViewController */,
 				189111A017350BB60089B197 /* PBSafariActivity */,
+				43D70A831846535B006FBAE4 /* Resources */,
 				6401361318198A4B0041A84C /* Images.xcassets */,
 				1882DF951733D8CD0030D3E2 /* Supporting Files */,
 			);
@@ -125,11 +126,18 @@
 		189111A017350BB60089B197 /* PBSafariActivity */ = {
 			isa = PBXGroup;
 			children = (
-				43D70A8118464558006FBAE4 /* PBSafariActivity.bundle */,
 				18034E4617345E9700439096 /* PBSafariActivity.h */,
 				18034E4717345E9700439096 /* PBSafariActivity.m */,
 			);
 			name = PBSafariActivity;
+			sourceTree = "<group>";
+		};
+		43D70A831846535B006FBAE4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				43D70A8118464558006FBAE4 /* PBSafariActivity.bundle */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

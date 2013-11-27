@@ -9,6 +9,6 @@ Pod::Spec.new do |s|
   s.source      	= { :git => "https://github.com/kmikael/PBWebViewController.git", :tag => "0.1" }
   s.platform  		= :ios, '6.0'
   s.source_files 	= "PBWebViewController/", "PBSafariActivity/"
-  s.resource        = "PBSafariActivity/PBSafariActivity.bundle"
+  s.resource        = "Resources/PBSafariActivity.bundle"
   s.requires_arc 	= true
 end
