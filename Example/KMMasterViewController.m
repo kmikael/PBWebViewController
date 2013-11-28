@@ -79,6 +79,7 @@
     self.webViewController.URL = [NSURL URLWithString:bookmark];
     self.webViewController.applicationActivities = @[activity];
     self.webViewController.excludedActivityTypes = @[UIActivityTypeMail, UIActivityTypeMessage, UIActivityTypePostToWeibo];
+    self.webViewController.allowURLEntry = YES;
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
         [self.navigationController pushViewController:self.webViewController animated:YES];
