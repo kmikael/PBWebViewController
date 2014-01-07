@@ -21,6 +21,7 @@
  * Otherwise, you can set a `URL` after the web view has already been loaded and then manually call `load`.
  */
 @property (strong, nonatomic) NSURL *URL;
+@property (strong, nonatomic) NSDictionary *HTTPHeaderFields;
 
 /** The array of data objects on which to perform the activity. */
 @property (strong, nonatomic) NSArray *activityItems;

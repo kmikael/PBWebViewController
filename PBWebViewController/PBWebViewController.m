@@ -36,7 +36,8 @@
 
 - (void)load
 {
-    NSURLRequest *request = [NSURLRequest requestWithURL:self.URL];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:self.URL];
+	[request setAllHTTPHeaderFields:self.HTTPHeaderFields];
     [self.webView loadRequest:request];
     
     if (self.navigationController.toolbarHidden) {
