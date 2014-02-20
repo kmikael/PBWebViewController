@@ -39,6 +39,7 @@
 
 - (void)load
 {
+    self.title = @"Loading...";
     NSURLRequest *request = [NSURLRequest requestWithURL:self.URL];
     [self.webView loadRequest:request];
     
