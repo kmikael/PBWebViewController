@@ -213,10 +213,16 @@
     }
     
     NSArray *activityItems;
-    if (self.activityItems) {
-        activityItems = [self.activityItems arrayByAddingObject:self.URL];
+    if (self.overrindingActivityItems) {
+        
+        activityItems = self.overrindingActivityItems;
     } else {
-        activityItems = @[self.URL];
+        
+        if (self.activityItems) {
+            activityItems = [self.activityItems arrayByAddingObject:self.URL];
+        } else {
+            activityItems = @[self.URL];
+        }
     }
     
     UIActivityViewController *vc = [[UIActivityViewController alloc] initWithActivityItems:activityItems
