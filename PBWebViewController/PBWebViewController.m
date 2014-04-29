@@ -212,14 +212,10 @@
         return;
     }
     
-    NSArray *activityItems;
-    if (self.activityItems) {
-        activityItems = [self.activityItems arrayByAddingObject:self.URL];
-    } else {
-        activityItems = @[self.URL];
-    }
+    if (self.activityItems == nil)
+        self.activityItems = @[self.URL];
     
-    UIActivityViewController *vc = [[UIActivityViewController alloc] initWithActivityItems:activityItems
+    UIActivityViewController *vc = [[UIActivityViewController alloc] initWithActivityItems:self.activityItems
                                                                      applicationActivities:self.applicationActivities];
     if (self.excludedActivityTypes) {
         vc.excludedActivityTypes = self.excludedActivityTypes;

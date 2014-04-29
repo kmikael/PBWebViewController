@@ -22,7 +22,10 @@
  */
 @property (strong, nonatomic) NSURL *URL;
 
-/** The array of data objects on which to perform the activity. */
+/** 
+ * The array of data objects on which to perform the activity.
+ * PBWebViewController initialises it to  @[self.URL] if nothing is provided 
+ */
 @property (strong, nonatomic) NSArray *activityItems;
 
 /** An array of UIActivity objects representing the custom services that your application supports. */
