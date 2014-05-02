@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 /**
- * The `PBWebViewController` class is a virw controller that displays the contents of a URL
+ * The `PBWebViewController` class is a view controller that displays the contents of a URL
  * along tith a navigation toolbar with buttons to stop/refresh the loading of the page
  * as well as buttons to go back, forward and to share the URL using a `UIActivityViewController`.
  */
@@ -24,11 +24,11 @@
 
 /** 
  * The array of data objects on which to perform the activity.
- * PBWebViewController initialises it to  @[self.URL] if nothing is provided 
+ * `@[self.URL]` is used if nothing is provided.
  */
 @property (strong, nonatomic) NSArray *activityItems;
 
-/** An array of UIActivity objects representing the custom services that your application supports. */
+/** An array of `UIActivity` objects representing the custom services that your application supports. */
 @property (strong, nonatomic) NSArray *applicationActivities;
 
 /** The list of services that should not be displayed. */
@@ -42,7 +42,8 @@
 @property (assign, nonatomic) BOOL showsNavigationToolbar;
 
 /**
- * Loads the given `URL`. This is called automatically when the when the web view appears if a `URL` exists,
+ * Loads the given `URL`.
+ * This is called automatically when the when the web view appears if a `URL` exists,
  * otehrwise it can be called manually.
  */
 - (void)load;
