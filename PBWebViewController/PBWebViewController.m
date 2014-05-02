@@ -212,14 +212,15 @@
         return;
     }
     
-    if (self.activityItems == nil)
-        self.activityItems = @[self.URL];
+    NSArray *activityItems = @[self.URL];
     
-    UIActivityViewController *vc = [[UIActivityViewController alloc] initWithActivityItems:self.activityItems
-                                                                     applicationActivities:self.applicationActivities];
-    if (self.excludedActivityTypes) {
-        vc.excludedActivityTypes = self.excludedActivityTypes;
+    if (self.activityItems) {
+        activityItems = self.activityItems;
     }
+    
+    UIActivityViewController *vc = [[UIActivityViewController alloc] initWithActivityItems:activityItems
+                                                                     applicationActivities:self.applicationActivities];
+    vc.excludedActivityTypes = self.excludedActivityTypes;
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
         [self presentViewController:vc animated:YES completion:NULL];
@@ -227,9 +228,13 @@
         if (!self.activitiyPopoverController) {
             self.activitiyPopoverController = [[UIPopoverController alloc] initWithContentViewController:vc];
         }
+        
         self.activitiyPopoverController.delegate = self;
-        [self.activitiyPopoverController presentPopoverFromBarButtonItem:[self.toolbarItems lastObject]
-                                                permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        
+        UIBarButtonItem *barButtonItem = [self.toolbarItems lastObject];
+        [self.activitiyPopoverController presentPopoverFromBarButtonItem:barButtonItem
+                                                permittedArrowDirections:UIPopoverArrowDirectionAny
+                                                                animated:YES];
     }
 }
 
