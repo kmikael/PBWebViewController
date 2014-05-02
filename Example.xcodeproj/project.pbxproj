@@ -18,6 +18,9 @@
 		1882DFA81733D8CD0030D3E2 /* KMMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1882DFA71733D8CD0030D3E2 /* KMMasterViewController.m */; };
 		1882DFAB1733D8CD0030D3E2 /* KMWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1882DFAA1733D8CD0030D3E2 /* KMWebViewController.m */; };
 		6401361418198A4B0041A84C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6401361318198A4B0041A84C /* Images.xcassets */; };
+		6404E5801913A20700221937 /* PBWebViewController.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 6404E57E1913A20700221937 /* PBWebViewController.podspec */; };
+		6404E5841913A21600221937 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6404E5821913A21600221937 /* LICENSE.txt */; };
+		6404E5851913A21600221937 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6404E5831913A21600221937 /* README.md */; };
 		6436E18D19139A3E009673B0 /* 782-compass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6436E18C19139A3E009673B0 /* 782-compass@2x.png */; };
 		6436E18F19139A8B009673B0 /* 782-compass.png in Resources */ = {isa = PBXBuildFile; fileRef = 6436E18E19139A8B009673B0 /* 782-compass.png */; };
 /* End PBXBuildFile section */
@@ -42,6 +45,9 @@
 		1882DFA91733D8CD0030D3E2 /* KMWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KMWebViewController.h; sourceTree = "<group>"; };
 		1882DFAA1733D8CD0030D3E2 /* KMWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KMWebViewController.m; sourceTree = "<group>"; };
 		6401361318198A4B0041A84C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		6404E57E1913A20700221937 /* PBWebViewController.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PBWebViewController.podspec; sourceTree = SOURCE_ROOT; };
+		6404E5821913A21600221937 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = SOURCE_ROOT; };
+		6404E5831913A21600221937 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
 		6436E18C19139A3E009673B0 /* 782-compass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "782-compass@2x.png"; path = "PBSafariActivity/782-compass@2x.png"; sourceTree = SOURCE_ROOT; };
 		6436E18E19139A8B009673B0 /* 782-compass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "782-compass.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,12 +96,7 @@
 		1882DF941733D8CD0030D3E2 /* Example */ = {
 			isa = PBXGroup;
 			children = (
-				1882DF9D1733D8CD0030D3E2 /* KMAppDelegate.h */,
-				1882DF9E1733D8CD0030D3E2 /* KMAppDelegate.m */,
-				1882DFA61733D8CD0030D3E2 /* KMMasterViewController.h */,
-				1882DFA71733D8CD0030D3E2 /* KMMasterViewController.m */,
-				1882DFA91733D8CD0030D3E2 /* KMWebViewController.h */,
-				1882DFAA1733D8CD0030D3E2 /* KMWebViewController.m */,
+				6404E5861913A27700221937 /* Classes */,
 				1891119F17350B780089B197 /* PBWebViewController */,
 				189111A017350BB60089B197 /* PBSafariActivity */,
 				6401361318198A4B0041A84C /* Images.xcassets */,
@@ -120,6 +121,9 @@
 			children = (
 				18510C7A1733EA6100F0206C /* PBWebViewController.h */,
 				18510C7B1733EA6100F0206C /* PBWebViewController.m */,
+				6404E57E1913A20700221937 /* PBWebViewController.podspec */,
+				6404E5831913A21600221937 /* README.md */,
+				6404E5821913A21600221937 /* LICENSE.txt */,
 			);
 			name = PBWebViewController;
 			sourceTree = "<group>";
@@ -133,6 +137,19 @@
 				6436E18C19139A3E009673B0 /* 782-compass@2x.png */,
 			);
 			name = PBSafariActivity;
+			sourceTree = "<group>";
+		};
+		6404E5861913A27700221937 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				1882DF9D1733D8CD0030D3E2 /* KMAppDelegate.h */,
+				1882DF9E1733D8CD0030D3E2 /* KMAppDelegate.m */,
+				1882DFA61733D8CD0030D3E2 /* KMMasterViewController.h */,
+				1882DFA71733D8CD0030D3E2 /* KMMasterViewController.m */,
+				1882DFA91733D8CD0030D3E2 /* KMWebViewController.h */,
+				1882DFAA1733D8CD0030D3E2 /* KMWebViewController.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,7 +204,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6404E5841913A21600221937 /* LICENSE.txt in Resources */,
+				6404E5801913A20700221937 /* PBWebViewController.podspec in Resources */,
 				6401361418198A4B0041A84C /* Images.xcassets in Resources */,
+				6404E5851913A21600221937 /* README.md in Resources */,
 				1882DF991733D8CD0030D3E2 /* InfoPlist.strings in Resources */,
 				6436E18F19139A8B009673B0 /* 782-compass.png in Resources */,
 				6436E18D19139A3E009673B0 /* 782-compass@2x.png in Resources */,
