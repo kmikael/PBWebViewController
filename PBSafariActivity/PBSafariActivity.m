@@ -28,7 +28,7 @@
 
 - (UIImage *)activityImage
 {
-    return [UIImage imageNamed:@"Safari"];
+    return [UIImage imageNamed:@"782-compass"];
 }
 
 - (BOOL)canPerformWithActivityItems:(NSArray *)activityItems
@@ -38,6 +38,7 @@
             return YES;
         }
     }
+    
     return NO;
 }
 

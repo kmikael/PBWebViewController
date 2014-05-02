@@ -8,10 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		18034E4817345E9700439096 /* PBSafariActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 18034E4717345E9700439096 /* PBSafariActivity.m */; };
-		18034E4D17345EA700439096 /* Safari@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 18034E4917345EA700439096 /* Safari@2x~ipad.png */; };
-		18034E4E17345EA700439096 /* Safari@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 18034E4A17345EA700439096 /* Safari@2x~iphone.png */; };
-		18034E4F17345EA700439096 /* Safari~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 18034E4B17345EA700439096 /* Safari~ipad.png */; };
-		18034E5017345EA700439096 /* Safari~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 18034E4C17345EA700439096 /* Safari~iphone.png */; };
 		18510C7C1733EA6100F0206C /* PBWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18510C7B1733EA6100F0206C /* PBWebViewController.m */; };
 		1882DF8F1733D8CD0030D3E2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1882DF8E1733D8CC0030D3E2 /* UIKit.framework */; };
 		1882DF911733D8CD0030D3E2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1882DF901733D8CD0030D3E2 /* Foundation.framework */; };
@@ -22,15 +18,13 @@
 		1882DFA81733D8CD0030D3E2 /* KMMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1882DFA71733D8CD0030D3E2 /* KMMasterViewController.m */; };
 		1882DFAB1733D8CD0030D3E2 /* KMWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1882DFAA1733D8CD0030D3E2 /* KMWebViewController.m */; };
 		6401361418198A4B0041A84C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6401361318198A4B0041A84C /* Images.xcassets */; };
+		6436E18D19139A3E009673B0 /* 782-compass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6436E18C19139A3E009673B0 /* 782-compass@2x.png */; };
+		6436E18F19139A8B009673B0 /* 782-compass.png in Resources */ = {isa = PBXBuildFile; fileRef = 6436E18E19139A8B009673B0 /* 782-compass.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		18034E4617345E9700439096 /* PBSafariActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBSafariActivity.h; path = ../PBSafariActivity/PBSafariActivity.h; sourceTree = "<group>"; };
 		18034E4717345E9700439096 /* PBSafariActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PBSafariActivity.m; path = ../PBSafariActivity/PBSafariActivity.m; sourceTree = "<group>"; };
-		18034E4917345EA700439096 /* Safari@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Safari@2x~ipad.png"; path = "../PBSafariActivity/Safari@2x~ipad.png"; sourceTree = "<group>"; };
-		18034E4A17345EA700439096 /* Safari@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Safari@2x~iphone.png"; path = "../PBSafariActivity/Safari@2x~iphone.png"; sourceTree = "<group>"; };
-		18034E4B17345EA700439096 /* Safari~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Safari~ipad.png"; path = "../PBSafariActivity/Safari~ipad.png"; sourceTree = "<group>"; };
-		18034E4C17345EA700439096 /* Safari~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Safari~iphone.png"; path = "../PBSafariActivity/Safari~iphone.png"; sourceTree = "<group>"; };
 		18510C7A1733EA6100F0206C /* PBWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PBWebViewController.h; path = ../PBWebViewController/PBWebViewController.h; sourceTree = "<group>"; };
 		18510C7B1733EA6100F0206C /* PBWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PBWebViewController.m; path = ../PBWebViewController/PBWebViewController.m; sourceTree = "<group>"; };
 		1882DF8B1733D8CC0030D3E2 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,6 +42,8 @@
 		1882DFA91733D8CD0030D3E2 /* KMWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KMWebViewController.h; sourceTree = "<group>"; };
 		1882DFAA1733D8CD0030D3E2 /* KMWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KMWebViewController.m; sourceTree = "<group>"; };
 		6401361318198A4B0041A84C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		6436E18C19139A3E009673B0 /* 782-compass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "782-compass@2x.png"; path = "PBSafariActivity/782-compass@2x.png"; sourceTree = SOURCE_ROOT; };
+		6436E18E19139A8B009673B0 /* 782-compass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "782-compass.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,10 +129,8 @@
 			children = (
 				18034E4617345E9700439096 /* PBSafariActivity.h */,
 				18034E4717345E9700439096 /* PBSafariActivity.m */,
-				18034E4917345EA700439096 /* Safari@2x~ipad.png */,
-				18034E4A17345EA700439096 /* Safari@2x~iphone.png */,
-				18034E4B17345EA700439096 /* Safari~ipad.png */,
-				18034E4C17345EA700439096 /* Safari~iphone.png */,
+				6436E18E19139A8B009673B0 /* 782-compass.png */,
+				6436E18C19139A3E009673B0 /* 782-compass@2x.png */,
 			);
 			name = PBSafariActivity;
 			sourceTree = "<group>";
@@ -195,10 +189,8 @@
 			files = (
 				6401361418198A4B0041A84C /* Images.xcassets in Resources */,
 				1882DF991733D8CD0030D3E2 /* InfoPlist.strings in Resources */,
-				18034E4D17345EA700439096 /* Safari@2x~ipad.png in Resources */,
-				18034E4E17345EA700439096 /* Safari@2x~iphone.png in Resources */,
-				18034E4F17345EA700439096 /* Safari~ipad.png in Resources */,
-				18034E5017345EA700439096 /* Safari~iphone.png in Resources */,
+				6436E18F19139A8B009673B0 /* 782-compass.png in Resources */,
+				6436E18D19139A3E009673B0 /* 782-compass@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
