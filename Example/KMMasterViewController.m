@@ -27,9 +27,13 @@
             @"http://www.macstories.net",
             @"http://www.macdrifter.com",
             @"http://brettterpstra.com",
-            @"http://www.pinbrowser.co"
+            
+            @"http://www.pinbrowser.co",
+            @"http://kmikael.com",
+            @"https://twitter.com/mkonutgan"
         ];
     }
+    
     return _bookmarks;
 }
 
