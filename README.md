@@ -36,7 +36,7 @@ See the example project for more advanced usage.
 
 ### Subclassing Notes
 
-`PBWebViewController` can safely be subclassed to implement custom behaveour.
+`PBWebViewController` can safely be subclassed to implement custom behavior.
 Override `load` and the `UIWebViewDelegate` methods to hook in,
 just don't forget to call `super` to take advantage of what `PBWebViewController` provides.
 
@@ -44,8 +44,9 @@ A simple subclass is used in the example project.
 
 ### Notes on custom activity items and application activities
 
-`PBWebViewController` adds the current URL and any activity items you provide to the application activity that is clicked.
-You can customize everything that shows up when the action button is clicked this way.
+`PBWebViewController` sets the current URL as the only activity item, if none or provided,
+otherwise the activity items you provide are used.
+You can fully customize everything that shows up when the action button is clicked this way.
 
 Another way to achieve the same result is to override `activityItems` and `applicationActivities` in a subclass.
 
