@@ -47,11 +47,6 @@
     }
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [self.webViewController clear];
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.bookmarks count];
