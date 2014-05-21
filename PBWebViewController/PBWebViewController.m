@@ -10,16 +10,19 @@
 
 @interface PBWebViewController () <UIPopoverControllerDelegate>
 
-@property (strong, nonatomic) UIWebView *webView;
+@property (strong) UIWebView *webView;
 
-@property (strong, nonatomic) UIBarButtonItem *stopLoadingButton;
-@property (strong, nonatomic) UIBarButtonItem *reloadButton;
-@property (strong, nonatomic) UIBarButtonItem *backButton;
-@property (strong, nonatomic) UIBarButtonItem *forwardButton;
+@property (strong) UIBarButtonItem *stopLoadingButton;
+@property (strong) UIBarButtonItem *reloadButton;
+@property (strong) UIBarButtonItem *backButton;
+@property (strong) UIBarButtonItem *forwardButton;
 
-@property (strong, nonatomic) UIPopoverController *activitiyPopoverController;
+@property (strong) UIPopoverController *activitiyPopoverController;
 
-@property (assign, nonatomic) BOOL toolbarPreviouslyHidden;
+@property (assign) BOOL toolbarPreviouslyHidden;
+
+@property (strong) UINavigationBar *navigationBar;
+@property (strong) UIToolbar *toolBar;
 
 @end
 
@@ -50,6 +53,7 @@
 
 - (void)load
 {
+    self.title = @"Loading...";
     NSURLRequest *request = [NSURLRequest requestWithURL:self.URL];
     [self.webView loadRequest:request];
     
@@ -69,23 +73,26 @@
 
 #pragma mark - View controller lifecycle
 
-- (void)loadView
-{
-    self.webView = [[UIWebView alloc] init];
-    self.webView.scalesPageToFit = YES;
-    self.view = self.webView;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
+    self.webView.scalesPageToFit = YES;
+    [self.view addSubview:self.webView];
+
+    if (![self parentViewController])
+        [self setupPresentedView];
+    
     [self setupToolBarItems];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
     self.webView.delegate = self;
+    
     if (self.URL) {
         [self load];
     }
@@ -158,6 +165,24 @@
     return image;
 }
 
+- (void)setupPresentedView {
+    self.navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 64.0)];
+    [self.view addSubview:self.navigationBar];
+    
+    CGRect webViewFrame = self.view.bounds;
+    webViewFrame.origin.y += 64.0;
+    webViewFrame.size.height -= (64.0 + 49.0);
+    self.webView.frame = webViewFrame;
+    
+    UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStyleBordered target:self action:@selector(close)];
+    self.navigationItem.leftBarButtonItem = backButtonItem;
+    
+    [self.navigationBar pushNavigationItem:self.navigationItem animated:NO];
+    
+    self.toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0, self.view.bounds.size.height - 49.0, 320.0, 49.0)];
+    [self.view addSubview:self.toolBar];
+}
+
 - (void)setupToolBarItems
 {
     self.stopLoadingButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop
@@ -194,7 +219,12 @@
                                                                             action:nil];
     space_.width = 60.0f;
     
-    self.toolbarItems = @[self.stopLoadingButton, space, self.backButton, space_, self.forwardButton, space, actionButton];
+    NSArray *toolbarItems = @[self.stopLoadingButton, space, self.backButton, space_, self.forwardButton, space, actionButton];
+    
+    if (![self parentViewController])
+        self.toolBar.items = toolbarItems;
+    else
+        self.toolbarItems = toolbarItems;
 }
 
 - (void)toggleState
@@ -218,6 +248,10 @@
 }
 
 #pragma mark - Button actions
+
+- (void)close {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void)action:(id)sender
 {
@@ -263,6 +297,7 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
     [self finishLoad];
+    
     self.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     self.URL = self.webView.request.URL;
 }
