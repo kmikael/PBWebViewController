@@ -22,6 +22,8 @@
  */
 @property (strong, nonatomic) NSURL *URL;
 
+@property (nonatomic) BOOL forceReload;
+
 /** 
  * The array of data objects on which to perform the activity.
  * `@[self.URL]` is used if nothing is provided.
