@@ -28,10 +28,14 @@
  */
 @property (strong, nonatomic) NSArray *activityItems;
 
-/** An array of `UIActivity` objects representing the custom services that your application supports. */
+/**
+ * An array of `UIActivity` objects representing the custom services that your application supports.
+ */
 @property (strong, nonatomic) NSArray *applicationActivities;
 
-/** The list of services that should not be displayed. */
+/**
+ * The list of services that should not be displayed.
+ */
 @property (strong, nonatomic) NSArray *excludedActivityTypes;
 
 /**

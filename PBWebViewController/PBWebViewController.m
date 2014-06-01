@@ -50,7 +50,7 @@
 
 - (void)load
 {
-    NSURLRequest *request = [NSURLRequest requestWithURL:self.URL];
+    NSURLRequest *request = [NSURLRequest requestWithURL:self.URL cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:4.0];
     [self.webView loadRequest:request];
     
     if (self.navigationController.toolbarHidden) {
