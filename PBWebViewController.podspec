@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.license      = {:type => 'MIT', :file => 'LICENSE.txt'}
   s.author       = {'Mikael Konutgan' => "me@kmikael.com"}
   s.source       = {:git => 'https://github.com/kmikael/PBWebViewController.git', :tag => '0.2'}
-  s.platform     = :ios, '7.0'
+  s.platform     = :ios, '6.0'
   s.source_files = 'PBWebViewController/'
   s.requires_arc = true
 end
