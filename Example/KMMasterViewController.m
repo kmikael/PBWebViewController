@@ -29,7 +29,8 @@
             @"http://brettterpstra.com",
             @"http://www.pinbrowser.co",
             @"http://kmikael.com",
-            @"https://twitter.com/mkonutgan"
+            @"https://twitter.com/mkonutgan",
+            @"http://nshipster.com/"
         ];
     }
     
@@ -69,19 +70,38 @@
 {
     NSString *bookmark = self.bookmarks[indexPath.row];
     
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        self.webViewController = [[PBWebViewController alloc] init];
-    }
-    
-    PBSafariActivity *activity = [[PBSafariActivity alloc] init];
-    self.webViewController.URL = [NSURL URLWithString:bookmark];
-    self.webViewController.applicationActivities = @[activity];
-    self.webViewController.excludedActivityTypes = @[UIActivityTypeMail, UIActivityTypeMessage, UIActivityTypePostToWeibo];
-    
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        [self.navigationController pushViewController:self.webViewController animated:YES];
+    if (indexPath.row != self.bookmarks.count-1) {
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+            self.webViewController = [[PBWebViewController alloc] init];
+        }
+        
+        PBSafariActivity *activity = [[PBSafariActivity alloc] init];
+        self.webViewController.URL = [NSURL URLWithString:bookmark];
+        self.webViewController.applicationActivities = @[activity];
+        self.webViewController.excludedActivityTypes = @[UIActivityTypeMail, UIActivityTypeMessage, UIActivityTypePostToWeibo];
+        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+            [self.navigationController pushViewController:self.webViewController animated:YES];
+        } else {
+            [self.webViewController load];
+        }
     } else {
-        [self.webViewController load];
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+            self.webViewController = [[PBWebViewController alloc] init];
+        }
+        
+        PBSafariActivity *activity = [[PBSafariActivity alloc] init];
+        self.webViewController.URLRequest = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:bookmark]
+                                                                  cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
+                                                              timeoutInterval:10.0];
+        self.webViewController.applicationActivities = @[activity];
+        self.webViewController.excludedActivityTypes = @[UIActivityTypeMail, UIActivityTypeMessage, UIActivityTypePostToWeibo];
+        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+            [self.navigationController pushViewController:self.webViewController animated:YES];
+        } else {
+            [self.webViewController load];
+        }
     }
 }
 
