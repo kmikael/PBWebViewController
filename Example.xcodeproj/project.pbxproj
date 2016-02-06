@@ -17,6 +17,8 @@
 		1882DF9F1733D8CD0030D3E2 /* KMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1882DF9E1733D8CD0030D3E2 /* KMAppDelegate.m */; };
 		1882DFA81733D8CD0030D3E2 /* KMMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1882DFA71733D8CD0030D3E2 /* KMMasterViewController.m */; };
 		1882DFAB1733D8CD0030D3E2 /* KMWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1882DFAA1733D8CD0030D3E2 /* KMWebViewController.m */; };
+		1D91900E1C65C550001357F4 /* LaunchScreen-iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D91900D1C65C550001357F4 /* LaunchScreen-iPhone.storyboard */; };
+		1D9190101C65CCDE001357F4 /* LaunchScreen-iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D91900F1C65CCDE001357F4 /* LaunchScreen-iPad.storyboard */; };
 		6401361418198A4B0041A84C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6401361318198A4B0041A84C /* Images.xcassets */; };
 		6404E5801913A20700221937 /* PBWebViewController.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 6404E57E1913A20700221937 /* PBWebViewController.podspec */; };
 		6404E5841913A21600221937 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6404E5821913A21600221937 /* LICENSE.txt */; };
@@ -44,6 +46,8 @@
 		1882DFA71733D8CD0030D3E2 /* KMMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KMMasterViewController.m; sourceTree = "<group>"; };
 		1882DFA91733D8CD0030D3E2 /* KMWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KMWebViewController.h; sourceTree = "<group>"; };
 		1882DFAA1733D8CD0030D3E2 /* KMWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KMWebViewController.m; sourceTree = "<group>"; };
+		1D91900D1C65C550001357F4 /* LaunchScreen-iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "LaunchScreen-iPhone.storyboard"; sourceTree = "<group>"; };
+		1D91900F1C65CCDE001357F4 /* LaunchScreen-iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "LaunchScreen-iPad.storyboard"; sourceTree = "<group>"; };
 		6401361318198A4B0041A84C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6404E57E1913A20700221937 /* PBWebViewController.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PBWebViewController.podspec; sourceTree = SOURCE_ROOT; };
 		6404E5821913A21600221937 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = SOURCE_ROOT; };
@@ -101,6 +105,8 @@
 				189111A017350BB60089B197 /* PBSafariActivity */,
 				6401361318198A4B0041A84C /* Images.xcassets */,
 				1882DF951733D8CD0030D3E2 /* Supporting Files */,
+				1D91900D1C65C550001357F4 /* LaunchScreen-iPhone.storyboard */,
+				1D91900F1C65CCDE001357F4 /* LaunchScreen-iPad.storyboard */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -205,9 +211,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6404E5841913A21600221937 /* LICENSE.txt in Resources */,
+				1D91900E1C65C550001357F4 /* LaunchScreen-iPhone.storyboard in Resources */,
 				6404E5801913A20700221937 /* PBWebViewController.podspec in Resources */,
 				6401361418198A4B0041A84C /* Images.xcassets in Resources */,
 				6404E5851913A21600221937 /* README.md in Resources */,
+				1D9190101C65CCDE001357F4 /* LaunchScreen-iPad.storyboard in Resources */,
 				1882DF991733D8CD0030D3E2 /* InfoPlist.strings in Resources */,
 				6436E18F19139A8B009673B0 /* 782-compass.png in Resources */,
 				6436E18D19139A3E009673B0 /* 782-compass@2x.png in Resources */,
