@@ -19,8 +19,18 @@
  * The URL that will be loaded by the web view controller.
  * If there is one present when the web view appears, it will be automatically loaded, by calling `load`,
  * Otherwise, you can set a `URL` after the web view has already been loaded and then manually call `load`.
+ * Automatically creates a NSURLRequest for you.
  */
 @property (strong, nonatomic) NSURL *URL;
+
+
+/**
+ * The URL request that will be loaded by the web view controller.
+ * If there is one present when the web view appears, it will be automatically loaded, by calling `load`,
+ * Otherwise, you can set a `URLRequest` after the web view has already been loaded and then manually call `load`.
+ * Use this to set your own request with custom headers.
+ */
+@property (strong, nonatomic) NSURLRequest *URLRequest;
 
 /** 
  * The array of data objects on which to perform the activity.

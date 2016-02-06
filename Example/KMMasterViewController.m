@@ -27,10 +27,10 @@
             @"http://www.macstories.net",
             @"http://www.macdrifter.com",
             @"http://brettterpstra.com",
-            
             @"http://www.pinbrowser.co",
             @"http://kmikael.com",
-            @"https://twitter.com/mkonutgan"
+            @"https://twitter.com/mkonutgan",
+            @"http://nshipster.com/"
         ];
     }
     
@@ -75,7 +75,16 @@
     }
     
     PBSafariActivity *activity = [[PBSafariActivity alloc] init];
-    self.webViewController.URL = [NSURL URLWithString:bookmark];
+    
+    NSURL *URL = [NSURL URLWithString:bookmark];
+    
+    if (indexPath.row != self.bookmarks.count - 1) {
+        self.webViewController.URL = URL;
+    } else {
+        NSURLRequest *URLRequest = [NSURLRequest requestWithURL:URL cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
+        self.webViewController.URLRequest = URLRequest;
+    }
+    
     self.webViewController.applicationActivities = @[activity];
     self.webViewController.excludedActivityTypes = @[UIActivityTypeMail, UIActivityTypeMessage, UIActivityTypePostToWeibo];
     

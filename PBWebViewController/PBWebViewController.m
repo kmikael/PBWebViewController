@@ -17,7 +17,7 @@
 @property (strong, nonatomic) UIBarButtonItem *backButton;
 @property (strong, nonatomic) UIBarButtonItem *forwardButton;
 
-@property (strong, nonatomic) UIPopoverController *activitiyPopoverController;
+@property (strong, nonatomic) UIPopoverController *activityPopoverController;
 
 @property (assign, nonatomic) BOOL toolbarPreviouslyHidden;
 
@@ -50,8 +50,7 @@
 
 - (void)load
 {
-    NSURLRequest *request = [NSURLRequest requestWithURL:self.URL cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60.0];
-    [self.webView loadRequest:request];
+    [self.webView loadRequest:self.URLRequest];
     
     if (self.navigationController.toolbarHidden) {
         self.toolbarPreviouslyHidden = YES;
@@ -101,6 +100,16 @@
     if (self.toolbarPreviouslyHidden && self.showsNavigationToolbar) {
         [self.navigationController setToolbarHidden:YES animated:YES];
     }
+}
+
+#pragma mark - URL setter/getter
+
+- (void)setURL:(NSURL *)URL {
+    self.URLRequest = [NSURLRequest requestWithURL:URL cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60.0];
+}
+
+- (NSURL *)URL {
+    return self.URLRequest.URL;
 }
 
 #pragma mark - Helpers
@@ -221,8 +230,8 @@
 
 - (void)action:(id)sender
 {
-    if (self.activitiyPopoverController.popoverVisible) {
-        [self.activitiyPopoverController dismissPopoverAnimated:YES];
+    if (self.activityPopoverController.popoverVisible) {
+        [self.activityPopoverController dismissPopoverAnimated:YES];
         return;
     }
     
@@ -239,14 +248,14 @@
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
         [self presentViewController:vc animated:YES completion:NULL];
     } else {
-        if (!self.activitiyPopoverController) {
-            self.activitiyPopoverController = [[UIPopoverController alloc] initWithContentViewController:vc];
+        if (!self.activityPopoverController) {
+            self.activityPopoverController = [[UIPopoverController alloc] initWithContentViewController:vc];
         }
         
-        self.activitiyPopoverController.delegate = self;
+        self.activityPopoverController.delegate = self;
         
         UIBarButtonItem *barButtonItem = [self.toolbarItems lastObject];
-        [self.activitiyPopoverController presentPopoverFromBarButtonItem:barButtonItem
+        [self.activityPopoverController presentPopoverFromBarButtonItem:barButtonItem
                                                 permittedArrowDirections:UIPopoverArrowDirectionAny
                                                                 animated:YES];
     }
@@ -276,7 +285,7 @@
 
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
 {
-    self.activitiyPopoverController = nil;
+    self.activityPopoverController = nil;
 }
 
 @end
