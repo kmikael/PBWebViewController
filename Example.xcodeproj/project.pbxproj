@@ -105,8 +105,6 @@
 				189111A017350BB60089B197 /* PBSafariActivity */,
 				6401361318198A4B0041A84C /* Images.xcassets */,
 				1882DF951733D8CD0030D3E2 /* Supporting Files */,
-				1D91900D1C65C550001357F4 /* LaunchScreen-iPhone.storyboard */,
-				1D91900F1C65CCDE001357F4 /* LaunchScreen-iPad.storyboard */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -118,6 +116,8 @@
 				1882DF971733D8CD0030D3E2 /* InfoPlist.strings */,
 				1882DF9A1733D8CD0030D3E2 /* main.m */,
 				1882DF9C1733D8CD0030D3E2 /* Example-Prefix.pch */,
+				1D91900D1C65C550001357F4 /* LaunchScreen-iPhone.storyboard */,
+				1D91900F1C65CCDE001357F4 /* LaunchScreen-iPad.storyboard */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
