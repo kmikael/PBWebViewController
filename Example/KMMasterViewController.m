@@ -70,38 +70,28 @@
 {
     NSString *bookmark = self.bookmarks[indexPath.row];
     
-    if (indexPath.row != self.bookmarks.count-1) {
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-            self.webViewController = [[PBWebViewController alloc] init];
-        }
-        
-        PBSafariActivity *activity = [[PBSafariActivity alloc] init];
-        self.webViewController.URL = [NSURL URLWithString:bookmark];
-        self.webViewController.applicationActivities = @[activity];
-        self.webViewController.excludedActivityTypes = @[UIActivityTypeMail, UIActivityTypeMessage, UIActivityTypePostToWeibo];
-        
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-            [self.navigationController pushViewController:self.webViewController animated:YES];
-        } else {
-            [self.webViewController load];
-        }
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        self.webViewController = [[PBWebViewController alloc] init];
+    }
+    
+    PBSafariActivity *activity = [[PBSafariActivity alloc] init];
+    
+    NSURL *URL = [NSURL URLWithString:bookmark];
+    
+    if (indexPath.row != self.bookmarks.count - 1) {
+        self.webViewController.URL = URL;
     } else {
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-            self.webViewController = [[PBWebViewController alloc] init];
-        }
-        
-        PBSafariActivity *activity = [[PBSafariActivity alloc] init];
-        self.webViewController.URLRequest = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:bookmark]
-                                                                  cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
-                                                              timeoutInterval:10.0];
-        self.webViewController.applicationActivities = @[activity];
-        self.webViewController.excludedActivityTypes = @[UIActivityTypeMail, UIActivityTypeMessage, UIActivityTypePostToWeibo];
-        
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-            [self.navigationController pushViewController:self.webViewController animated:YES];
-        } else {
-            [self.webViewController load];
-        }
+        NSURLRequest *URLRequest = [NSURLRequest requestWithURL:URL cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
+        self.webViewController.URLRequest = URLRequest;
+    }
+    
+    self.webViewController.applicationActivities = @[activity];
+    self.webViewController.excludedActivityTypes = @[UIActivityTypeMail, UIActivityTypeMessage, UIActivityTypePostToWeibo];
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        [self.navigationController pushViewController:self.webViewController animated:YES];
+    } else {
+        [self.webViewController load];
     }
 }
 
