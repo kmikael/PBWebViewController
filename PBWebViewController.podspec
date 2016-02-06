@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'PBWebViewController'
-  s.version      = '0.3'
+  s.version      = '0.4'
   s.summary      = 'A light-weight, simple and extendible web browser component for iOS.'
   s.homepage     = 'https://github.com/kmikael/PBWebViewController'
   s.license      = {:type => 'MIT', :file => 'LICENSE.txt'}
