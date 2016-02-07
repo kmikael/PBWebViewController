@@ -43,7 +43,6 @@
     self.title = NSLocalizedString(@"Bookmarks", @"Bookmarks");
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         self.clearsSelectionOnViewWillAppear = NO;
-        self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
     }
 }
 
