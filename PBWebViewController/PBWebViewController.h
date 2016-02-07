@@ -6,7 +6,9 @@
 //  Copyright (c) 2013 Mikael Konutgan. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
+
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  * The `PBWebViewController` class is a view controller that displays the contents of a URL
@@ -21,8 +23,7 @@
  * Otherwise, you can set a `URL` after the web view has already been loaded and then manually call `load`.
  * Automatically creates a NSURLRequest for you.
  */
-@property (strong, nonatomic) NSURL *URL;
-
+@property (strong, nonatomic, nullable) NSURL *URL;
 
 /**
  * The URL request that will be loaded by the web view controller.
@@ -30,23 +31,23 @@
  * Otherwise, you can set a `URLRequest` after the web view has already been loaded and then manually call `load`.
  * Use this to set your own request with custom headers.
  */
-@property (strong, nonatomic) NSURLRequest *URLRequest;
+@property (strong, nonatomic, nullable) NSURLRequest *URLRequest;
 
 /** 
  * The array of data objects on which to perform the activity.
  * `@[self.URL]` is used if nothing is provided.
  */
-@property (strong, nonatomic) NSArray *activityItems;
+@property (strong, nonatomic, nullable) NSArray *activityItems;
 
 /**
  * An array of `UIActivity` objects representing the custom services that your application supports.
  */
-@property (strong, nonatomic) NSArray *applicationActivities;
+@property (strong, nonatomic, nullable) NSArray *applicationActivities;
 
 /**
  * The list of services that should not be displayed.
  */
-@property (strong, nonatomic) NSArray *excludedActivityTypes;
+@property (strong, nonatomic, nullable) NSArray *excludedActivityTypes;
 
 /**
  * A Boolean indicating whether the web view controller’s toolbar,
@@ -68,3 +69,5 @@
 - (void)clear;
 
 @end
+
+NS_ASSUME_NONNULL_END
