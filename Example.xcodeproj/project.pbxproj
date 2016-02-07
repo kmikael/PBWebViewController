@@ -20,9 +20,6 @@
 		1D91900E1C65C550001357F4 /* LaunchScreen-iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D91900D1C65C550001357F4 /* LaunchScreen-iPhone.storyboard */; };
 		1D9190101C65CCDE001357F4 /* LaunchScreen-iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D91900F1C65CCDE001357F4 /* LaunchScreen-iPad.storyboard */; };
 		6401361418198A4B0041A84C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6401361318198A4B0041A84C /* Images.xcassets */; };
-		6404E5801913A20700221937 /* PBWebViewController.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 6404E57E1913A20700221937 /* PBWebViewController.podspec */; };
-		6404E5841913A21600221937 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6404E5821913A21600221937 /* LICENSE.txt */; };
-		6404E5851913A21600221937 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6404E5831913A21600221937 /* README.md */; };
 		6436E18D19139A3E009673B0 /* 782-compass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6436E18C19139A3E009673B0 /* 782-compass@2x.png */; };
 		6436E18F19139A8B009673B0 /* 782-compass.png in Resources */ = {isa = PBXBuildFile; fileRef = 6436E18E19139A8B009673B0 /* 782-compass.png */; };
 /* End PBXBuildFile section */
@@ -48,9 +45,6 @@
 		1D91900D1C65C550001357F4 /* LaunchScreen-iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "LaunchScreen-iPhone.storyboard"; sourceTree = "<group>"; };
 		1D91900F1C65CCDE001357F4 /* LaunchScreen-iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "LaunchScreen-iPad.storyboard"; sourceTree = "<group>"; };
 		6401361318198A4B0041A84C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		6404E57E1913A20700221937 /* PBWebViewController.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PBWebViewController.podspec; sourceTree = SOURCE_ROOT; };
-		6404E5821913A21600221937 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = SOURCE_ROOT; };
-		6404E5831913A21600221937 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
 		6436E18C19139A3E009673B0 /* 782-compass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "782-compass@2x.png"; path = "PBSafariActivity/782-compass@2x.png"; sourceTree = SOURCE_ROOT; };
 		6436E18E19139A8B009673B0 /* 782-compass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "782-compass.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,9 +119,6 @@
 			children = (
 				18510C7A1733EA6100F0206C /* PBWebViewController.h */,
 				18510C7B1733EA6100F0206C /* PBWebViewController.m */,
-				6404E57E1913A20700221937 /* PBWebViewController.podspec */,
-				6404E5831913A21600221937 /* README.md */,
-				6404E5821913A21600221937 /* LICENSE.txt */,
 			);
 			name = PBWebViewController;
 			sourceTree = "<group>";
@@ -208,11 +199,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6404E5841913A21600221937 /* LICENSE.txt in Resources */,
 				1D91900E1C65C550001357F4 /* LaunchScreen-iPhone.storyboard in Resources */,
-				6404E5801913A20700221937 /* PBWebViewController.podspec in Resources */,
 				6401361418198A4B0041A84C /* Images.xcassets in Resources */,
-				6404E5851913A21600221937 /* README.md in Resources */,
 				1D9190101C65CCDE001357F4 /* LaunchScreen-iPad.storyboard in Resources */,
 				1882DF991733D8CD0030D3E2 /* InfoPlist.strings in Resources */,
 				6436E18F19139A8B009673B0 /* 782-compass.png in Resources */,
