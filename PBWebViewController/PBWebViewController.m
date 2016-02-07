@@ -8,7 +8,7 @@
 
 #import "PBWebViewController.h"
 
-@interface PBWebViewController () <UIPopoverControllerDelegate>
+@interface PBWebViewController ()
 
 @property (strong, nonatomic) UIWebView *webView;
 
@@ -16,8 +16,6 @@
 @property (strong, nonatomic) UIBarButtonItem *reloadButton;
 @property (strong, nonatomic) UIBarButtonItem *backButton;
 @property (strong, nonatomic) UIBarButtonItem *forwardButton;
-
-@property (strong, nonatomic) UIPopoverController *activityPopoverController;
 
 @property (assign, nonatomic) BOOL toolbarPreviouslyHidden;
 
@@ -212,32 +210,16 @@
 
 - (void)action:(id)sender
 {
-    if (self.activityPopoverController.popoverVisible) {
-        [self.activityPopoverController dismissPopoverAnimated:YES];
-        return;
-    }
+    NSArray *activityItems = self.activityItems ? self.activityItems : @[self.URL];
     
-    NSArray *activityItems = @[self.URL];
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:self.applicationActivities];
     
-    if (self.activityItems) {
-        activityItems = self.activityItems;
-    }
+    activityViewController.excludedActivityTypes = self.excludedActivityTypes;
     
-    UIActivityViewController *vc = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:self.applicationActivities];
-    vc.excludedActivityTypes = self.excludedActivityTypes;
+    activityViewController.modalPresentationStyle = UIModalPresentationPopover;
+    activityViewController.popoverPresentationController.barButtonItem = self.toolbarItems.lastObject;
     
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        [self presentViewController:vc animated:YES completion:NULL];
-    } else {
-        if (!self.activityPopoverController) {
-            self.activityPopoverController = [[UIPopoverController alloc] initWithContentViewController:vc];
-        }
-        
-        self.activityPopoverController.delegate = self;
-        
-        UIBarButtonItem *barButtonItem = [self.toolbarItems lastObject];
-        [self.activityPopoverController presentPopoverFromBarButtonItem:barButtonItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-    }
+    [self presentViewController:activityViewController animated:YES completion:nil];
 }
 
 #pragma mark - Web view delegate
@@ -258,13 +240,6 @@
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
     [self finishLoad];
-}
-
-#pragma mark - Popover controller delegate
-
-- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
-{
-    self.activityPopoverController = nil;
 }
 
 @end
