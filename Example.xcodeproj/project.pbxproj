@@ -39,7 +39,6 @@
 		1882DF961733D8CD0030D3E2 /* Example-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Example-Info.plist"; sourceTree = "<group>"; };
 		1882DF981733D8CD0030D3E2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1882DF9A1733D8CD0030D3E2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		1882DF9C1733D8CD0030D3E2 /* Example-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Example-Prefix.pch"; sourceTree = "<group>"; };
 		1882DF9D1733D8CD0030D3E2 /* KMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KMAppDelegate.h; sourceTree = "<group>"; };
 		1882DF9E1733D8CD0030D3E2 /* KMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KMAppDelegate.m; sourceTree = "<group>"; };
 		1882DFA61733D8CD0030D3E2 /* KMMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KMMasterViewController.h; sourceTree = "<group>"; };
@@ -115,7 +114,6 @@
 				1882DF961733D8CD0030D3E2 /* Example-Info.plist */,
 				1882DF971733D8CD0030D3E2 /* InfoPlist.strings */,
 				1882DF9A1733D8CD0030D3E2 /* main.m */,
-				1882DF9C1733D8CD0030D3E2 /* Example-Prefix.pch */,
 				1D91900D1C65C550001357F4 /* LaunchScreen-iPhone.storyboard */,
 				1D91900F1C65CCDE001357F4 /* LaunchScreen-iPad.storyboard */,
 			);
@@ -318,8 +316,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Example/Example-Prefix.pch";
 				INFOPLIST_FILE = "Example/Example-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kmikael.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -332,8 +328,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Example/Example-Prefix.pch";
 				INFOPLIST_FILE = "Example/Example-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kmikael.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
