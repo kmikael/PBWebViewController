@@ -23,7 +23,7 @@
 
 - (NSString *)activityTitle
 {
-    return @"Open in Safari";
+    return NSLocalizedString(@"Open in Safari", @"Open the URL in Safari.");
 }
 
 - (UIImage *)activityImage
@@ -45,8 +45,9 @@
 - (void)prepareWithActivityItems:(NSArray *)activityItems
 {
     for (id activityItem in activityItems) {
-        if ([activityItem isKindOfClass:[NSURL class]]) {
+        if ([activityItem isKindOfClass:[NSURL class]] && [[UIApplication sharedApplication] canOpenURL:activityItem]) {
             self.URL = activityItem;
+            
             return;
         }
     }
@@ -55,6 +56,7 @@
 - (void)performActivity
 {
     [[UIApplication sharedApplication] openURL:self.URL];
+    
     [self activityDidFinish:YES];
 }
 
