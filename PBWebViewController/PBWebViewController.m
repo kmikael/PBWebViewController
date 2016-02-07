@@ -152,13 +152,13 @@
         
         CGContextRef context = UIGraphicsGetCurrentContext();
         
-        CGFloat x_mid = size.width / 2.0;
-        CGFloat y_mid = size.height / 2.0;
+        CGFloat midX = size.width / 2.0;
+        CGFloat midY = size.height / 2.0;
         
-        CGContextTranslateCTM(context, x_mid, y_mid);
+        CGContextTranslateCTM(context, midX, midY);
         CGContextRotateCTM(context, M_PI);
         
-        [backButtonImage drawAtPoint:CGPointMake(-x_mid, -y_mid)];
+        [backButtonImage drawAtPoint:CGPointMake(-midX, -midY)];
         
         image = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
@@ -169,39 +169,19 @@
 
 - (void)setupToolBarItems
 {
-    self.stopLoadingButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop
-                                                                           target:self.webView
-                                                                           action:@selector(stopLoading)];
-    
-    self.reloadButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
-                                                                      target:self.webView
-                                                                      action:@selector(reload)];
-    
-    self.backButton = [[UIBarButtonItem alloc] initWithImage:[self backButtonImage]
-                                                       style:UIBarButtonItemStylePlain
-                                                      target:self.webView
-                                                      action:@selector(goBack)];
-    
-    self.forwardButton = [[UIBarButtonItem alloc] initWithImage:[self forwardButtonImage]
-                                                          style:UIBarButtonItemStylePlain
-                                                         target:self.webView
-                                                         action:@selector(goForward)];
+    self.stopLoadingButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self.webView action:@selector(stopLoading)];
+    self.reloadButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self.webView action:@selector(reload)];
+    self.backButton = [[UIBarButtonItem alloc] initWithImage:[self backButtonImage] style:UIBarButtonItemStylePlain target:self.webView action:@selector(goBack)];
+    self.forwardButton = [[UIBarButtonItem alloc] initWithImage:[self forwardButtonImage] style:UIBarButtonItemStylePlain target:self.webView action:@selector(goForward)];
     
     self.backButton.enabled = NO;
     self.forwardButton.enabled = NO;
     
-    UIBarButtonItem *actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
-                                                                                  target:self
-                                                                                  action:@selector(action:)];
+    UIBarButtonItem *actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(action:)];
+    UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *space_ = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
     
-    UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
-                                                                           target:nil
-                                                                           action:nil];
-    
-    UIBarButtonItem *space_ = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
-                                                                            target:nil
-                                                                            action:nil];
-    space_.width = 60.0f;
+    space_.width = 60.0;
     
     self.toolbarItems = @[self.stopLoadingButton, space, self.backButton, space_, self.forwardButton, space, actionButton];
 }
@@ -212,11 +192,13 @@
     self.forwardButton.enabled = self.webView.canGoForward;
     
     NSMutableArray *toolbarItems = [self.toolbarItems mutableCopy];
+    
     if (self.webView.loading) {
         toolbarItems[0] = self.stopLoadingButton;
     } else {
         toolbarItems[0] = self.reloadButton;
     }
+    
     self.toolbarItems = [toolbarItems copy];
 }
 
@@ -241,8 +223,7 @@
         activityItems = self.activityItems;
     }
     
-    UIActivityViewController *vc = [[UIActivityViewController alloc] initWithActivityItems:activityItems
-                                                                     applicationActivities:self.applicationActivities];
+    UIActivityViewController *vc = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:self.applicationActivities];
     vc.excludedActivityTypes = self.excludedActivityTypes;
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
@@ -255,9 +236,7 @@
         self.activityPopoverController.delegate = self;
         
         UIBarButtonItem *barButtonItem = [self.toolbarItems lastObject];
-        [self.activityPopoverController presentPopoverFromBarButtonItem:barButtonItem
-                                                permittedArrowDirections:UIPopoverArrowDirectionAny
-                                                                animated:YES];
+        [self.activityPopoverController presentPopoverFromBarButtonItem:barButtonItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     }
 }
 
