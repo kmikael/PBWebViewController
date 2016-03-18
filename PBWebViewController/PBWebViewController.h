@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Mikael Konutgan. All rights reserved.
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

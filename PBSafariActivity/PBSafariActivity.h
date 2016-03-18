@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Mikael Konutgan. All rights reserved.
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
 
 /*
  * A `UIActivity` subclass to be used with a `UIActivityViewController` that opens a URL in Safari.
