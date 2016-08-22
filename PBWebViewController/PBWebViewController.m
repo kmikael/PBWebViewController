@@ -175,6 +175,10 @@
     self.backButton.enabled = NO;
     self.forwardButton.enabled = NO;
     
+    self.backButton.accessibilityLabel = self.backButtonAccessibilityLabel;
+    self.forwardButton.accessibilityLabel = self.forwardButtonAccessibilityLabel;
+
+    
     UIBarButtonItem *actionButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(action:)];
     UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *space_ = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];

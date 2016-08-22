@@ -57,6 +57,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (assign, nonatomic) BOOL showsNavigationToolbar;
 
 /**
+ * Allows accessibility label to be set for the back button.
+ */
+@property (copy, nonatomic) NSString *backButtonAccessibilityLabel;
+
+/**
+ * Allows accessibility label to be set for the forward button.
+ */
+@property (copy, nonatomic) NSString *forwardButtonAccessibilityLabel;
+
+/**
  * Loads the given `URL`.
  * This is called automatically when the when the web view appears if a `URL` exists,
  * otehrwise it can be called manually.
