@@ -10,7 +10,7 @@
 
 @interface PBWebViewController ()
 
-@property (strong, nonatomic) UIWebView *webView;
+@property (strong, nonatomic) WKWebView *webView;
 
 @property (strong, nonatomic) UIBarButtonItem *stopLoadingButton;
 @property (strong, nonatomic) UIBarButtonItem *reloadButton;
@@ -68,8 +68,7 @@
 
 - (void)loadView
 {
-    self.webView = [[UIWebView alloc] init];
-    self.webView.scalesPageToFit = YES;
+    self.webView = [[WKWebView alloc] init];
     self.view = self.webView;
 }
 
@@ -82,7 +81,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.webView.delegate = self;
+    self.webView.navigationDelegate = self;
     if (self.URL) {
         [self load];
     }
@@ -92,7 +91,7 @@
 {
     [super viewWillDisappear:animated];
     [self.webView stopLoading];
-    self.webView.delegate = nil;
+    self.webView.navigationDelegate = self;
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
     if (self.toolbarPreviouslyHidden && self.showsNavigationToolbar) {
@@ -224,20 +223,20 @@
 
 #pragma mark - Web view delegate
 
-- (void)webViewDidStartLoad:(UIWebView *)webView
+- (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation
 {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [self toggleState];
 }
 
-- (void)webViewDidFinishLoad:(UIWebView *)webView
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation
 {
     [self finishLoad];
-    self.title = [webView stringByEvaluatingJavaScriptFromString:@"document.title"];
-    self.URL = self.webView.request.URL;
+    self.title = self.webView.title;
+    self.URL = self.webView.URL;
 }
 
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+- (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error
 {
     [self finishLoad];
 }
