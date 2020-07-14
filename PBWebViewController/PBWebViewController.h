@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <WebKit/WebKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
  * along tith a navigation toolbar with buttons to stop/refresh the loading of the page
  * as well as buttons to go back, forward and to share the URL using a `UIActivityViewController`.
  */
-@interface PBWebViewController : UIViewController <UIWebViewDelegate>
+@interface PBWebViewController : UIViewController <WKNavigationDelegate>
 
 /**
  * The URL that will be loaded by the web view controller.
